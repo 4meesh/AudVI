@@ -1,18 +1,18 @@
 @import url("https://fonts.cdnfonts.com/css/thegoodmonolith");
 
 :root {
-  --bg-color: #10ffc1;
-  --grid-color: rgba(16, 255, 193, 0.07);
-  --text-primary: #10ffc1;
-  --text-secondary: #10ffc1;
-  --text-highlight: #10ffc1;
-  --accent-primary: #10ffc1;
-  --accent-secondary: #10ffc1;
-  --accent-tertiary: #10ffc1;
-  --panel-bg: rgba(16, 255, 193, 0.85);
-  --panel-border: rgba(16, 255, 193, 0.3);
-  --panel-highlight: rgba(16, 255, 193, 0.08);
-  --scanner-line: rgba(16, 255, 193, 0.7);
+  --bg-color: #12100f;
+  --grid-color: rgba(255, 240, 230, 0.05);
+  --text-primary: #f3ede9;
+  --text-secondary: #c2b8b2;
+  --text-highlight: #ff4e42;
+  --accent-primary: #ff4e42;
+  --accent-secondary: #c2362f;
+  --accent-tertiary: #ffb3ab;
+  --panel-bg: rgba(30, 26, 24, 0.7);
+  --panel-border: rgba(255, 78, 66, 0.3);
+  --panel-highlight: rgba(255, 78, 66, 0.1);
+  --scanner-line: rgba(255, 78, 66, 0.7);
 }
 
 * {
@@ -24,7 +24,7 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-primary);
-  font-family: 'Fira Mono', 'Consolas', 'Monaco', monospace;
+  font-family: "TheGoodMonolith", monospace;
   overflow: hidden;
   height: 100vh;
   text-transform: uppercase;
@@ -36,9 +36,6 @@ input,
 select,
 textarea {
   font-family: inherit;
-  color: var(--text-primary);
-  background: #10ffc1;
-  border: 1px solid var(--accent-primary);
 }
 
 .space-background {
@@ -47,13 +44,11 @@ textarea {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: none;
+  background-image: url("https://assets.codepen.io/7558/space-bg-002.jpg");
   background-size: cover;
   background-position: center;
   z-index: 0;
   opacity: 0.8;
-  background: #10ffc1;
-  opacity: 0.95;
 }
 
 #three-container {
@@ -62,7 +57,6 @@ textarea {
   height: 100%;
   z-index: 1;
   cursor: grab;
-  background: #10ffc1;
 }
 
 #three-container:active {
@@ -96,8 +90,6 @@ textarea {
   background-size: 40px 40px;
   pointer-events: none;
   z-index: 0;
-  background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
 }
 
 .header {
@@ -347,10 +339,9 @@ textarea {
   -webkit-appearance: none;
   width: 100%;
   height: 6px;
-  background: rgba(16, 255, 193, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   outline: none;
   border-radius: 3px;
-  background: linear-gradient(90deg, #10ffc1 0%, #10ffc1 100%);
 }
 
 .slider::-webkit-slider-thumb {
@@ -359,9 +350,8 @@ textarea {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #10ffc1;
+  background: var(--accent-primary);
   cursor: pointer;
-  box-shadow: 0 0 8px #10ffc1;
 }
 
 .buttons {
@@ -502,16 +492,15 @@ textarea {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: #111;
-  border: 1px solid #00ff00;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
   padding: 0.625rem 1.25rem;
   border-radius: 5px;
   font-size: 0.75rem;
-  color: #00ff00;
+  color: var(--accent-primary);
   opacity: 0;
   transition: opacity 0.3s;
   z-index: 100;
-  box-shadow: 0 0 8px #00ff00;
 }
 
 .drag-handle {
@@ -795,124 +784,23 @@ textarea {
   pointer-events: none;
   z-index: 4;
 }
-
-::-webkit-scrollbar {
-  background: #111;
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: #00ff00;
-}
-
-.water-footer {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  pointer-events: none;
-}
-.water {
-  position: relative;
-  width: 100%;
-  height: 70px;
-  overflow: hidden;
-  background: transparent;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-.water-wave {
+.floating-particle {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 70px;
-  z-index: 1;
-  animation: waveMove 4s linear infinite;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  opacity: 0.7;
+  animation: float 5s infinite ease-in-out;
 }
-@keyframes waveMove {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-40px); }
-}
-.water-text {
-  position: relative;
-  z-index: 2;
-  color: #10ffc1;
-  font-family: 'Fira Mono', 'Consolas', 'Monaco', monospace;
-  font-size: 1.3rem;
-  font-weight: bold;
-  text-shadow: 0 0 8px #10ffc1, 0 0 16px #10ffc1;
-  letter-spacing: 2px;
-  margin-top: 18px;
-  pointer-events: auto;
-  text-decoration: none;
-  animation: floatText 2.5s ease-in-out infinite alternate;
-}
-@keyframes floatText {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(10px); }
-}
-
-.audio-controls-panel {
-  position: absolute;
-  min-width: 160px;
-  max-width: 220px;
-  background: var(--panel-bg);
-  border: 1px solid var(--panel-border);
-  border-radius: 6px;
-  box-shadow: 0 0 12px #00ff00 inset;
-  z-index: 1100;
-  pointer-events: auto;
-  padding-bottom: 8px;
-}
-.audio-controls-panel .panel-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0.75rem 0.25rem 0.75rem;
-  border-bottom: 1px solid var(--panel-border);
-}
-.audio-controls-panel .data-panel-title {
-  color: var(--accent-primary);
-  font-size: 0.95rem;
-  text-shadow: 0 0 6px #10ffc1;
-}
-.audio-controls-panel .drag-handle {
-  cursor: grab;
-  color: var(--accent-primary);
-  font-size: 1.1rem;
-  margin-left: 8px;
-  user-select: none;
-  text-shadow: 0 0 6px #10ffc1;
-}
-.audio-controls-panel .control-group {
-  margin: 0.5rem 0.75rem 0 0.75rem;
-}
-.audio-controls-panel .control-label {
-  color: var(--text-primary);
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  text-shadow: 0 0 4px #10ffc1;
-}
-.audio-controls-panel .slider-container {
-  margin-top: 2px;
-  margin-bottom: 8px;
-}
-.audio-controls-panel .slider {
-  width: 100%;
-  accent-color: #10ffc1;
-  background: linear-gradient(90deg, #10ffc1 0%, #10ffc1 100%);
-  border-radius: 3px;
-  height: 3px;
-  outline: none;
-  box-shadow: 0 0 4px #10ffc144;
-}
-.audio-controls-panel .slider::-webkit-slider-thumb {
-  background: #10ffc1;
-  box-shadow: 0 0 6px #10ffc1;
-}
-.audio-controls-panel .slider::-moz-range-thumb {
-  background: #10ffc1;
-  box-shadow: 0 0 6px #10ffc1;
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
