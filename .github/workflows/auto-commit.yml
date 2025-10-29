@@ -1,0 +1,26 @@
+name: Auto Commit
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Example step: make changes (optional)
+      # - name: Make changes (example)
+      #   run: |
+      #     echo "This is an auto-commit test" >> auto-commit-test.txt
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v6.0.1
+        with:
+          commit_message: "chore: auto-commit changes [skip ci]" 
