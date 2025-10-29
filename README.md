@@ -11,32 +11,9 @@ A futuristic, audio-reactive 3D visualizer and interface built with Three.js and
 - Terminal-style system messages
 - Fully themed in #10ffc1 teal
 
-## Getting Started
-
-### 1. Clone the repository
-```
-git clone https://github.com/4meesh/AudVI.git
-cd AudVI
-```
-
-### 2. Start a local server
-You can use Python's built-in server:
-```
-python -m http.server 8000
-```
-
-### 3. Open in your browser
-Go to [http://localhost:8000/j.html](http://localhost:8000/j.html)
-
-## Usage
-- Click a demo track or upload your own audio file
-- Use the control panels to adjust audio effects and 3D parameters
-- Drag the anomaly object in the 3D view
-- Move UI panels by dragging their handles
-
 ## Credits
 - Built by [ameesh mohammed pv](https://instagram.com/4m335h)
-- Uses [Three.js](https://threejs.org/) and [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
+- https://audvi.vercel.app
 
 ---
 
